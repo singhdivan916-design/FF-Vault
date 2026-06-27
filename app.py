@@ -289,7 +289,7 @@ def fetch_backpack(jwt_token, server_config):
         "Authorization": f"Bearer {jwt_token}",
         "X-Unity-Version": "2018.4.11f1",
         "X-GA": "v1 1",
-        "ReleaseVersion": "OB53",
+        "ReleaseVersion": "OB54",  # UPDATED for OB54
         "Content-Type": "application/x-www-form-urlencoded",
         "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 9; G011A Build/PI)",
         "Connection": "close",
