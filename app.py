@@ -166,11 +166,11 @@ def get_item_database():
         log_terminal(f"Failed to fetch item database: {e}")
         return _item_db_cache or {}
 
-# ==================== TOKEN CONVERSION API ====================
-TOKEN_API_BASE = "http://87.232.72.68:3005/token"
+# ==================== TOKEN CONVERSION API (UPDATED) ====================
+TOKEN_API_BASE = "https://ff-jwt-gen-api.lovable.app/api/public/token"
 
 def get_jwt_from_uid_password(uid, password):
-    url = f"{TOKEN_API_BASE}?uid={uid}&password={password}&key=dgop"
+    url = f"{TOKEN_API_BASE}?guest_uid={uid}&guest_password={password}"
     try:
         resp = requests.get(url, timeout=15)
         if resp.status_code == 200:
@@ -183,7 +183,7 @@ def get_jwt_from_uid_password(uid, password):
         return None, str(e)
 
 def get_jwt_from_access_token(access_token):
-    url = f"{TOKEN_API_BASE}?access={access_token}&key=dgop"
+    url = f"{TOKEN_API_BASE}?access_token={access_token}"
     try:
         resp = requests.get(url, timeout=15)
         if resp.status_code == 200:
@@ -196,7 +196,7 @@ def get_jwt_from_access_token(access_token):
         return None, str(e)
 
 def get_jwt_from_eat_token(eat_token):
-    url = f"{TOKEN_API_BASE}?eat={eat_token}&key=dgop"
+    url = f"{TOKEN_API_BASE}?eat_token={eat_token}"
     try:
         resp = requests.get(url, timeout=15)
         if resp.status_code == 200:
